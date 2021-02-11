@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import {Navbar,NavbarBrand,Nav,NavbarToggler,Collapse,NavItem,Button,Modal,ModalHeader,ModalBody,
-    Form,FormGroup,Input,Label,NavLink,Jumbotron,Container,InputGroup, InputGroupAddon} from 'reactstrap';
+    Form,FormGroup,Input ,Label,NavLink,Jumbotron,Container,InputGroup, InputGroupAddon} from 'reactstrap';
 import  { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSignInAlt,faSearchLocation} from '@fortawesome/free-solid-svg-icons';
+/*import { Input, Menu } from 'semantic-ui-react'*/
 
 
 class Header extends Component{
@@ -11,11 +12,14 @@ class Header extends Component{
         this.state={
             isNavOpen:false,
             isModalOpen:false,
+            activeItem:'home',
         };
         this.toggleNav=this.toggleNav.bind(this);
         this.toggleModal=this.toggleModal.bind(this);
         this.handleLogin=this.handleLogin.bind(this);
+        /*this.handleItemClick=this.handleItemClick.bind(this);*/
     }
+    /*handleItemClick = (e, { name }) => this.setState({ activeItem: name })*/
 
     toggleModal(){
         this.setState({
@@ -37,15 +41,46 @@ class Header extends Component{
     }
 
     render(){
+        /*const { activeItem } = this.state*/
         return(
             <>
-            <Navbar dark color="dark" expand="md" fixed="top" >
-               <div className="container ">
-                   <NavbarToggler onClick={this.toggleNav} />
-                  <NavbarBrand className="ml-auto" href="/">
+           {/* <Menu secondary>
+        <Menu.Item
+          name='home'
+          active={activeItem === 'home'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='messages'
+          active={activeItem === 'messages'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='friends'
+          active={activeItem === 'friends'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          <Menu.Item
+            name='login'
+            active={activeItem === 'logout'}
+            onClick={this.toggleModal}
+          />
+        </Menu.Menu>
+           </Menu>*/}
+
+
+            <Navbar dark color="dark" expand="md" fixed="top" className="justify-content-between" >
+    
+                   
+                  <NavbarBrand  href="/">
                   <img src="assets/imgs/logo.jpg" height="40" width="60"
                            alt="TravelPal" /> TravelPal
                   </NavbarBrand>
+                  <NavbarToggler onClick={this.toggleNav} />
                   <NavItem className="navitems">
                       <div style={{display:"inline-block",alignItems:"center",justifyContent:"center",left:0}}>
                       <SearchBar/>
@@ -74,16 +109,16 @@ class Header extends Component{
                           </NavLink>
                        </NavItem>   
                   </Nav>
-                  <Nav className="ml-auto" navbar>
+                  </Collapse>
+                  <Nav className="mr-auto" navbar>
                       <NavItem>
                           <Button  color="secondary"  onClick={this.toggleModal}>
                           <FontAwesomeIcon icon={faSignInAlt}/> Login
                           </Button>
                       </NavItem>
                   </Nav>
-                  </Collapse>
-               </div>
-               </Navbar>
+               
+        </Navbar>
                
                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                    <ModalHeader className="modalheader" toggle={this.toggleModal}>Login</ModalHeader>
@@ -133,7 +168,7 @@ class Header extends Component{
     }
 }
 
-export const SearchBar = () => {
+ const SearchBar = () => {
     return(
        
             <InputGroup className="mb-2" >
@@ -141,7 +176,9 @@ export const SearchBar = () => {
                 <InputGroupAddon addonType="append">
                 <Button outline color="secondary"><FontAwesomeIcon icon={faSearchLocation}/></Button>
                 </InputGroupAddon>
-            </InputGroup>
+    </InputGroup>
+    
+    
        
     );
 }

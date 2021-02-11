@@ -1,9 +1,9 @@
 
 .footer{
-    background-color:#c4c4c4d7;
+    background-color:#000000d7;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
-    color:#0f0f0f;
+    color:#dadada;
 }
 
 address{
@@ -21,7 +21,7 @@ address{
     justify-content: space-around;
 }
 .mid{
-    background-color:#ffffff;
+    background-color:#000000;
     margin-top: 0;
 
 }
@@ -29,7 +29,28 @@ address{
     background-color: #6398d4;
     
 }
-
+#topguidedisplay{
+    background-color:#ffffff;
+    padding: 50px;
+    align-content: center;
+    text-align: center;
+}
+.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ui.modal,
+  .ui.active.modal {
+    margin: 0 auto!important;
+    top: 80px !important;
+    left: auto !important;
+    transform-origin: center !important;
+    transition: all ease .5s;
+  }
+  .ui.card{
+      margin-top:30px !important;
+  }
 
 
 

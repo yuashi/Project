@@ -19,7 +19,7 @@ class  Footer extends Component {
                         </div>
                         <div className="col-7 col-sm-5">
                             <h5>Our Address</h5>
-                            <address>
+                            <address style={{color:'white'}}>
                               Dehradun, Uttarakhand<br />
                               India<br />
                               248001<br />

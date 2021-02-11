@@ -3,6 +3,7 @@ import Header from './Header'
 import Footer from './Footer';
 import MainCarousel from './CarouselComponent';
 import MyFancyComponent from './Map';
+import BelowMap from './BelowMap';
 
 class Main extends Component{
     render(){
@@ -11,6 +12,7 @@ class Main extends Component{
             <Header/>
             <MainCarousel/>
             <MyFancyComponent/>
+            <BelowMap />
             <Footer/>
             </div>
         );
