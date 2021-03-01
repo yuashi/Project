@@ -14,7 +14,7 @@ const Header =()=>{
     
     return(
         <>
-        <Menu icon='labeled' inverted fixed='top' fluid widths={7} stackable borderless>
+        <Menu icon='labeled' inverted fixed='top' fluid widths={6} stackable borderless>
         <Menu.Item header><Image src="assets/imgs/logo.jpg" size='tiny' verticalAlign='top' floated='left' /></Menu.Item>
         <Menu.Item >
         <Input
