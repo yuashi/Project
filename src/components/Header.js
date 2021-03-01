@@ -6,13 +6,15 @@ const Header =()=>{
 
     const[activeItem,setActiveItem]=useState('home');
     const[open,setOpen]=useState(false);
+    const[open2,setOpen2]=useState(false);
 
     const handleItemClick=(e,{name})=>setActiveItem(name);
     const toggleModal=()=>setOpen(!open);
+    const toggleSignUpModal=()=>setOpen2(!open2);
     
     return(
         <>
-        <Menu icon='labeled' inverted fixed='top' fluid widths={6} stackable borderless>
+        <Menu icon='labeled' inverted fixed='top' fluid widths={7} stackable borderless>
         <Menu.Item header><Image src="assets/imgs/logo.jpg" size='tiny' verticalAlign='top' floated='left' /></Menu.Item>
         <Menu.Item >
         <Input
@@ -47,7 +49,9 @@ const Header =()=>{
         </Menu.Item>
         <Menu.Item>
         <Button onClick={toggleModal}>Log-in</Button>
-        </Menu.Item>    
+        </Menu.Item> 
+       
+             
         </Menu>
 
 <div>
@@ -76,11 +80,46 @@ const Header =()=>{
     <Form.Field>
       <Checkbox label='I agree to the Terms and Conditions' />
     </Form.Field>
-    <Button type='submit' fluid color='blue'>Submit</Button>
+    <Button type='submit' fluid color='blue'>LOGIN</Button>
     </Form>
     </ModalBody>
-    <ModalFooter><Button onClick={toggleModal} fluid color='yellow'>Sign Up</Button></ModalFooter> 
+    <ModalFooter><Button onClick={toggleSignUpModal} fluid color='yellow'>Sign Up</Button></ModalFooter> 
      </Modal>
+
+     <Modal
+      isOpen={open2} toggle={toggleSignUpModal}>
+    <ModalHeader className="modalheader" toggle={toggleSignUpModal}>Welcome to our community! Let's Sign you Up. </ModalHeader>
+    <ModalBody>  
+    <Form onSubmit={toggleSignUpModal} success>
+    <Form.Field required >
+      <label>First Name</label>
+      <input placeholder='First Name' />
+    </Form.Field>
+    <Form.Field required>
+      <label>Last Name</label>
+      <input placeholder='Last Name' />
+    </Form.Field>
+    <Form.Field required>
+      <label>Email</label>
+      <input placeholder='Email' />
+    </Form.Field>
+    <Form.Field required>
+      <label>Contack no.</label>
+      <input placeholder='Contactno'  />
+    </Form.Field>
+    <Form.Field required>
+      <label>Password</label>
+      <input placeholder='password'  />
+    </Form.Field>
+    <Form.Field required>
+      <Checkbox label='I agree to the Terms and Conditions' />
+    </Form.Field>
+    <Button  type='submit' onClick={()=>{window.alert('You have successfully signed up.');setOpen(false)}} fluid color='blue'>Sign Up</Button>
+    </Form>
+    </ModalBody>
+     </Modal>
+ 
+
 
 </>
     );
