@@ -2,6 +2,7 @@
 .footer{
     background-color:#000000d7;
     margin:0px auto;
+    margin-top: 20px;
     padding: 20px 0px 20px 0px;
     color:#dadada;
 }
@@ -12,14 +13,6 @@ address{
     color:#0f0f0f;
 }
 
-.navbar-dark {
-    color:#0f0f0f;
-    
-}
-.navitems {
-    align-items: center;
-    justify-content: space-around;
-}
 .mid{
     background-color:#000000;
     margin-top: 0;
@@ -52,6 +45,18 @@ address{
       margin-top:30px !important;
   }
 
+  .PageHeader{
+      margin-top: 85px !important;
+      padding-left: 10px !important;
+
+  }
+  
+  .guideregisterform{
+      margin-left: 10px !important;
+  }
+  .pagesegment{
+      background-color: rgb(196, 196, 196) !important;
+  }
 
 
 

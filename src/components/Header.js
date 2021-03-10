@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {Icon,Menu,Input,Button,Checkbox,Form,Image} from 'semantic-ui-react';
-import {Jumbotron,Container,Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
+import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 const Header =()=>{
 
@@ -8,7 +9,7 @@ const Header =()=>{
     const[open,setOpen]=useState(false);
     const[open2,setOpen2]=useState(false);
 
-    const handleItemClick=(e,{name})=>setActiveItem(name);
+    /*const handleItemClick=(e,{name})=>setActiveItem(name);*/
     const toggleModal=()=>setOpen(!open);
     const toggleSignUpModal=()=>setOpen2(!open2);
     
@@ -24,45 +25,35 @@ const Header =()=>{
         />
         </Menu.Item>
         <Menu.Item
+          as={NavLink} to="/home"
           name='home'
-          active={activeItem === 'home'}
-          onClick={handleItemClick}
+         
         >
         <Icon name='home'/>
         Home
         </Menu.Item>
         <Menu.Item
+          as={NavLink} to="/aboutus"
           name='aboutus'
-          active={activeItem === 'aboutus'}
-          onClick={handleItemClick}
+          
         >
         <Icon name='info'/>
         About Us
         </Menu.Item>
         <Menu.Item
-          name='services'
-          active={activeItem === 'services'}
-          onClick={handleItemClick}
+          as={NavLink} to="/register"
+          name='register'
+          
         >
-        <Icon name='services'/>
-        Services
+        <Icon name='book'/>
+        Register as a Guide
         </Menu.Item>
         <Menu.Item>
         <Button onClick={toggleModal}>Log-in</Button>
-        </Menu.Item> 
-       
-             
+        </Menu.Item>  
         </Menu>
 
-<div>
-<Jumbotron fluid style={{backgroundImage:`url('assets/imgs/tourist.jpg')`,backgroundSize:'cover',color:'white',marginTop:50}}>
-    <Container fluid >
-        <h1 className="display-1">TravelPal</h1>
-        <p className="lead">You are not alone! Explore India with our best Guides and get the most of your travel.<br/>
-         Happy Exploring !</p>
-    </Container>
-</Jumbotron>
-</div>
+
 
      <Modal
       isOpen={open} toggle={toggleModal}>
@@ -70,15 +61,15 @@ const Header =()=>{
     <ModalBody>  
     <Form onSubmit={toggleModal}>
     <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
+      <label>Username</label>
+      <input placeholder='user123' />
+    </Form.Field>
+    <Form.Field >
+      <label>Password</label>
+      <input placeholder='123@'  />
     </Form.Field>
     <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
-    </Form.Field>
-    <Form.Field>
-      <Checkbox label='I agree to the Terms and Conditions' />
+      <Checkbox label='Remember me' />
     </Form.Field>
     <Button type='submit' fluid color='blue'>LOGIN</Button>
     </Form>
@@ -104,12 +95,16 @@ const Header =()=>{
       <input placeholder='Email' />
     </Form.Field>
     <Form.Field required>
-      <label>Contack no.</label>
-      <input placeholder='Contactno'  />
+      <label>Contact no.</label>
+      <input placeholder='Contact no'  />
+    </Form.Field>
+    <Form.Field required>
+      <label>Username</label>
+      <input placeholder='user123' />
     </Form.Field>
     <Form.Field required>
       <label>Password</label>
-      <input placeholder='password'  />
+      <input placeholder='123@'  />
     </Form.Field>
     <Form.Field required>
       <Checkbox label='I agree to the Terms and Conditions' />
@@ -118,8 +113,6 @@ const Header =()=>{
     </Form>
     </ModalBody>
      </Modal>
- 
-
 
 </>
     );
