@@ -5,11 +5,23 @@ import { NavLink } from 'react-router-dom';
 
 const Header =()=>{
 
-    const[activeItem,setActiveItem]=useState('home');
     const[open,setOpen]=useState(false);
     const[open2,setOpen2]=useState(false);
 
-    /*const handleItemClick=(e,{name})=>setActiveItem(name);*/
+    /*----login modal user details---------------*/
+    const[loginUser,setLoginUser]=useState('');
+    const[loginPass,setLoginPass]=useState('');
+
+    /*-----sign up modal user details------------*/
+    const[signupFirstname,setFirstName]=useState('');
+    const[signupLastname,setLastName]=useState('');
+    const[signupEmail,setEmail]=useState('');
+    const[signupContact,setContact]=useState('');
+    const[signupUser,setSignupUser]=useState('');
+    const[signupPass,setSignupPass]=useState('');
+
+
+    
     const toggleModal=()=>setOpen(!open);
     const toggleSignUpModal=()=>setOpen2(!open2);
     
@@ -60,18 +72,20 @@ const Header =()=>{
     <ModalHeader className="modalheader" toggle={toggleModal}>Login</ModalHeader>
     <ModalBody>  
     <Form onSubmit={toggleModal}>
-    <Form.Field>
-      <label>Username</label>
-      <input placeholder='user123' />
-    </Form.Field>
-    <Form.Field >
-      <label>Password</label>
-      <input placeholder='123@'  />
-    </Form.Field>
+    <Form.Input
+      label='Username'
+      placeholder='user123'
+      name='loginUser'
+      onChange={(e)=> setLoginUser(e.target.value)} />
+    <Form.Input 
+      label='Password'
+      placeholder='123@'
+      name='loginPass' 
+      onChange={(e)=>setLoginPass(e.target.value)} />
     <Form.Field>
       <Checkbox label='Remember me' />
     </Form.Field>
-    <Button type='submit' fluid color='blue'>LOGIN</Button>
+    <Button onClick={()=>window.alert(JSON.stringify([loginUser,loginPass]))} fluid color='blue'>LOGIN</Button>
     </Form>
     </ModalBody>
     <ModalFooter><Button onClick={toggleSignUpModal} fluid color='yellow'>Sign Up</Button></ModalFooter> 
@@ -84,32 +98,44 @@ const Header =()=>{
     <Form onSubmit={toggleSignUpModal} success>
     <Form.Field required >
       <label>First Name</label>
-      <input placeholder='First Name' />
+      <input placeholder='First Name'
+             name='signupFirtsname'
+             onChange={(e)=>setFirstName(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Last Name</label>
-      <input placeholder='Last Name' />
+      <input placeholder='Last Name'
+              name='signupLastname'
+              onChange={(e)=>setLastName(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Email</label>
-      <input placeholder='Email' />
+      <input placeholder='Email'
+              name='signupEmail'
+              onChange={(e)=>setEmail(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Contact no.</label>
-      <input placeholder='Contact no'  />
+      <input placeholder='Contact no'
+              name='signupContact'
+              onChange={(e)=>setContact(e.target.value)}  />
     </Form.Field>
     <Form.Field required>
       <label>Username</label>
-      <input placeholder='user123' />
+      <input placeholder='user123'
+              name='signupUser'
+              onChange={(e)=>setSignupUser(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Password</label>
-      <input placeholder='123@'  />
+      <input placeholder='123@'
+              name='signupPass'
+              onChange={(e)=>setSignupPass(e.target.value)}  />
     </Form.Field>
     <Form.Field required>
       <Checkbox label='I agree to the Terms and Conditions' />
     </Form.Field>
-    <Button  type='submit' onClick={()=>{window.alert('You have successfully signed up.');setOpen(false)}} fluid color='blue'>Sign Up</Button>
+    <Button  type='submit' onClick={()=>{window.alert('You have successfully signed up.'+`${JSON.stringify([signupFirstname,signupLastname,signupEmail,signupContact,signupUser,signupPass])}`);setOpen(false)}} fluid color='blue'>Sign Up</Button>
     </Form>
     </ModalBody>
      </Modal>
