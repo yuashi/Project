@@ -46,12 +46,14 @@ class RegisterPage extends Component {
           label='First name'
           placeholder='First name'
           name='firstname'
+          type='text'
           onChange={this.handleChange}
            />
           <Form.Input
           label='Last name'
           placeholder='Last name'
           name='lastname'
+          type='text'
           onChange={this.handleChange}
            />
         </Form.Group>
@@ -61,12 +63,14 @@ class RegisterPage extends Component {
           label='Contact No.'
           placeholder='91-xxxxxxxxxx'
           name='contact'
+          type='number'
           onChange={this.handleChange}
            />
           <Form.Input
           label='Email'
           placeholder='123@xyz.com'
           name='email'
+          type='email'
           onChange={this.handleChange}
            />
         </Form.Group>
@@ -76,12 +80,14 @@ class RegisterPage extends Component {
           label='Aadhaar No.'
           placeholder='Aadhaar No.'
           name='aadhaar'
+          type='number'
           onChange={this.handleChange}
            />
           <Form.Input
           label='Date Of Birth'
           placeholder='DD/MM/YYYY'
           name='dob'
+          type='date'
           onChange={this.handleChange}
            />
         </Form.Group>

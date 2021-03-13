@@ -80,7 +80,8 @@ const Header =()=>{
     <Form.Input 
       label='Password'
       placeholder='123@'
-      name='loginPass' 
+      name='loginPass'
+      type='password' 
       onChange={(e)=>setLoginPass(e.target.value)} />
     <Form.Field>
       <Checkbox label='Remember me' />
@@ -100,24 +101,28 @@ const Header =()=>{
       <label>First Name</label>
       <input placeholder='First Name'
              name='signupFirtsname'
+             type='text'
              onChange={(e)=>setFirstName(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Last Name</label>
       <input placeholder='Last Name'
               name='signupLastname'
+              type='text'
               onChange={(e)=>setLastName(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Email</label>
       <input placeholder='Email'
               name='signupEmail'
+              type='email'
               onChange={(e)=>setEmail(e.target.value)} />
     </Form.Field>
     <Form.Field required>
       <label>Contact no.</label>
       <input placeholder='Contact no'
               name='signupContact'
+              type='number'
               onChange={(e)=>setContact(e.target.value)}  />
     </Form.Field>
     <Form.Field required>
@@ -130,6 +135,7 @@ const Header =()=>{
       <label>Password</label>
       <input placeholder='123@'
               name='signupPass'
+              type='password'
               onChange={(e)=>setSignupPass(e.target.value)}  />
     </Form.Field>
     <Form.Field required>

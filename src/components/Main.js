@@ -13,8 +13,8 @@ const Main = ()=>{
             <BrowserRouter>
             <Header/>
             <Route path="/home" component={Home} exact/>
-            <Route path='/register' component={RegisterPage} />
-            <Route path='/aboutus' component={AboutUsPage} />
+            <Route path='/register' component={RegisterPage} exact />
+            <Route path='/aboutus' component={AboutUsPage} exact/>
             </BrowserRouter>
             <Footer/>
             </div>
