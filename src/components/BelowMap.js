@@ -1,14 +1,18 @@
-import React,{useState} from 'react';
+import React,{useState,createRef} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Card, Button, Image } from 'semantic-ui-react';
 import topguides from "../shared/topguides";
 import TopGuideModal from "../ComponentHelpers/TopGuideModal";
 
-const BelowMap = () =>{
+const BelowMap = ({scrollDiv}) =>{
 
     const[showModal,setShowModal] = useState(false);
     const[modaltopguide,setModaltopguide]=useState([]);
 
+    /* For voice configuration
+    const[voicemodaltopguide,setVoiceModalTopGuide]=useState(false);
+    const[voiceshowmodal,setVoiceShowModal]=useState([]);
+    */
     function getModalComponent() {
     if (showModal) {
       return <TopGuideModal modaltopguide={modaltopguide} 
@@ -21,10 +25,11 @@ const BelowMap = () =>{
   }
 
 
+
     return(
 
-      <div id="topguidedisplay">
-        <h1>Our Top Guides of the Month</h1>
+      <div id="topguidedisplay" >
+        <h1 ref={scrollDiv}>Our Top Guides of the Month</h1>
         <Card.Group centered>
           {topguides.map(topguide => (
             <Card key={topguide.key}>

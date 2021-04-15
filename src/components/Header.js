@@ -3,10 +3,17 @@ import {Icon,Menu,Input,Button,Checkbox,Form,Image} from 'semantic-ui-react';
 import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
-const Header =()=>{
+const Header = ({voiceopenmodal,callBackModal})=>{
 
     const[open,setOpen]=useState(false);
     const[open2,setOpen2]=useState(false);
+
+    /*------login modal through voice-----------*/
+    
+    const voicetoggleModal=()=>{
+      callBackModal();
+    };
+    
 
     /*----login modal user details---------------*/
     const[loginUser,setLoginUser]=useState('');
@@ -26,7 +33,9 @@ const Header =()=>{
     const toggleSignUpModal=()=>setOpen2(!open2);
     
     return(
+      
         <>
+        
         <Menu icon='labeled' inverted fixed='top' fluid widths={6} stackable borderless>
         <Menu.Item header><Image src="assets/imgs/logo.jpg" size='tiny' verticalAlign='top' floated='left' /></Menu.Item>
         <Menu.Item >
@@ -65,9 +74,11 @@ const Header =()=>{
         </Menu.Item>  
         </Menu>
 
+      
+  
 
 
-     <Modal
+     <Modal 
       isOpen={open} toggle={toggleModal}>
     <ModalHeader className="modalheader" toggle={toggleModal}>Login</ModalHeader>
     <ModalBody>  
@@ -91,6 +102,40 @@ const Header =()=>{
     </ModalBody>
     <ModalFooter><Button onClick={toggleSignUpModal} fluid color='yellow'>Sign Up</Button></ModalFooter> 
      </Modal>
+
+     {/*Sign in modal through voice*/}
+     <Modal isOpen={voiceopenmodal}  >
+    <ModalHeader className="modalheader" toggle={voicetoggleModal} >Login</ModalHeader>
+    <ModalBody>  
+    <Form onSubmit={voicetoggleModal}>
+    <Form.Input
+      label='Username'
+      placeholder='user123'
+      name='loginUser'
+      onChange={(e)=> setLoginUser(e.target.value)} />
+    <Form.Input 
+      label='Password'
+      placeholder='123@'
+      name='loginPass'
+      type='password' 
+      onChange={(e)=>setLoginPass(e.target.value)} />
+    <Form.Field>
+      <Checkbox label='Remember me' />
+    </Form.Field>
+    <Button onClick={()=>window.alert(JSON.stringify([loginUser,loginPass]))} fluid color='blue'>LOGIN</Button>
+    </Form>
+    </ModalBody>
+    <ModalFooter><Button onClick={toggleSignUpModal} fluid color='yellow'>Sign Up</Button></ModalFooter> 
+     </Modal>
+
+
+
+
+
+
+
+
+
 
      <Modal
       isOpen={open2} toggle={toggleSignUpModal}>
@@ -148,5 +193,5 @@ const Header =()=>{
 
 </>
     );
-}
+};
 export default Header;
